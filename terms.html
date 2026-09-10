@@ -1,0 +1,274 @@
+<title>Bible Rats Terms</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>
+  :root {
+    --bg: #fafafa;
+    --surface: #ffffff;
+    --surface-raised: #f4f4f5;
+    --border: #e4e4e7;
+    --text: #18181b;
+    --text-secondary: #52525b;
+    --text-tertiary: #71717a;
+    --accent: #ea580c;
+    --accent-tint: rgba(234, 88, 12, 0.1);
+    --accent-line: rgba(234, 88, 12, 0.35);
+    --shadow: 0 1px 2px rgba(24, 24, 27, 0.04);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #18181b;
+      --surface: #1f1f22;
+      --surface-raised: #27272a;
+      --border: #3f3f46;
+      --text: #fafafa;
+      --text-secondary: #a1a1aa;
+      --text-tertiary: #71717a;
+      --accent: #fb923c;
+      --accent-tint: rgba(251, 146, 60, 0.12);
+      --accent-line: rgba(251, 146, 60, 0.35);
+      --shadow: none;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #18181b;
+    --surface: #1f1f22;
+    --surface-raised: #27272a;
+    --border: #3f3f46;
+    --text: #fafafa;
+    --text-secondary: #a1a1aa;
+    --text-tertiary: #71717a;
+    --accent: #fb923c;
+    --accent-tint: rgba(251, 146, 60, 0.12);
+    --accent-line: rgba(251, 146, 60, 0.35);
+    --shadow: none;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: var(--accent-tint); }
+
+  .wrap { max-width: 700px; margin: 0 auto; padding: 56px 24px 96px; }
+
+  header.doc {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 40px;
+  }
+  .mark {
+    width: 40px; height: 40px; border-radius: 11px;
+    background: var(--surface-raised);
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    flex: none;
+  }
+  .mark svg { width: 22px; height: 22px; }
+  .brand { font-family: "Manrope", sans-serif; font-weight: 800; font-size: 15px; letter-spacing: -0.01em; }
+  .brand small {
+    display: block; font-weight: 600; font-size: 11px; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--text-tertiary); margin-top: 1px;
+  }
+
+  h1.title {
+    font-family: "Manrope", sans-serif;
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+    margin: 0 0 14px;
+  }
+  .dek {
+    font-family: "Manrope", sans-serif;
+    font-size: 15px;
+    color: var(--text-secondary);
+    margin: 0 0 20px;
+    max-width: 52ch;
+  }
+  .effective {
+    display: inline-flex; align-items: center; gap: 7px;
+    font-family: "Manrope", sans-serif;
+    font-size: 12px; font-weight: 700; letter-spacing: 0.04em;
+    color: var(--accent);
+    background: var(--accent-tint);
+    border: 1px solid var(--accent-line);
+    border-radius: 999px;
+    padding: 6px 12px 6px 10px;
+  }
+  .effective .dot { width: 6px; height: 6px; border-radius: 999px; background: var(--accent); }
+
+  nav.toc {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 20px 22px;
+    margin: 36px 0 44px;
+    box-shadow: var(--shadow);
+  }
+  nav.toc .label {
+    font-family: "Manrope", sans-serif;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase;
+    color: var(--text-tertiary);
+    margin: 0 0 12px;
+  }
+  nav.toc ol {
+    list-style: none; margin: 0; padding: 0;
+    columns: 2; column-gap: 24px;
+  }
+  nav.toc li { break-inside: avoid; margin-bottom: 9px; }
+  nav.toc a {
+    font-family: "Manrope", sans-serif;
+    font-size: 13.5px; font-weight: 600;
+    color: var(--text-secondary);
+    text-decoration: none;
+    display: flex; gap: 8px;
+  }
+  nav.toc a:hover { color: var(--accent); }
+  nav.toc a .n { color: var(--text-tertiary); font-variant-numeric: tabular-nums; width: 1.4em; flex: none; }
+
+  section.clause { margin: 0 0 38px; scroll-margin-top: 24px; }
+  section.clause h2 {
+    font-family: "Manrope", sans-serif;
+    font-size: 20px; font-weight: 700; letter-spacing: -0.01em;
+    display: flex; align-items: baseline; gap: 10px;
+    margin: 0 0 14px;
+  }
+  section.clause h2 .n {
+    font-size: 14px; color: var(--accent); font-variant-numeric: tabular-nums;
+  }
+  section.clause p { margin: 0 0 14px; color: var(--text); }
+  section.clause p.muted { color: var(--text-secondary); font-size: 15.5px; }
+  section.clause ul { margin: 0 0 14px; padding-left: 1.3em; }
+  section.clause li { margin-bottom: 8px; }
+  section.clause strong { font-weight: 600; }
+  a.inline { color: var(--accent); text-decoration-color: var(--accent-line); }
+
+  .divider { height: 1px; background: var(--border); margin: 44px 0; border: none; }
+
+  footer.contact {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px 26px;
+    box-shadow: var(--shadow);
+  }
+  footer.contact .label {
+    font-family: "Manrope", sans-serif;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase;
+    color: var(--text-tertiary); margin: 0 0 8px;
+  }
+  footer.contact p { margin: 0 0 6px; font-size: 15.5px; }
+  footer.contact .fineprint { margin-top: 14px; font-family: "Manrope", sans-serif; font-size: 12px; color: var(--text-tertiary); }
+
+  @media (max-width: 520px) {
+    h1.title { font-size: 32px; }
+    nav.toc ol { columns: 1; }
+    .wrap { padding: 40px 18px 72px; }
+  }
+</style>
+
+<div class="wrap">
+  <header class="doc">
+    <div class="mark">
+      <svg viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M110 120 Q110 95 135 95 L410 220 Q470 250 485 325 L485 740 Q475 708 450 680 Q395 620 315 585 L150 520 Q110 505 110 460 Z" fill="var(--text)" transform="translate(80,120) scale(0.62)"/>
+        <path d="M515 325 Q530 250 590 220 L865 95 Q890 95 890 120 L890 460 Q890 505 850 520 L690 585 Q620 615 565 675 Q535 708 520 740 L520 325 Z" fill="var(--text-tertiary)" transform="translate(80,120) scale(0.62)"/>
+      </svg>
+    </div>
+    <div class="brand">Bible Rats<small>Study together, stay consistent</small></div>
+  </header>
+
+  <h1 class="title">Terms of Service</h1>
+  <p class="dek">The plain-language rules for using Bible Rats — a small, honest app for keeping your Bible reading going with people who'll actually notice if you stop.</p>
+  <span class="effective"><span class="dot"></span>Effective September 10, 2026</span>
+
+  <nav class="toc" aria-label="Table of contents">
+    <p class="label">On this page</p>
+    <ol>
+      <li><a href="#eligibility"><span class="n">1</span>Eligibility</a></li>
+      <li><a href="#account"><span class="n">2</span>Your account</a></li>
+      <li><a href="#content"><span class="n">3</span>What you post</a></li>
+      <li><a href="#groups"><span class="n">4</span>Groups &amp; sharing</a></li>
+      <li><a href="#conduct"><span class="n">5</span>Community conduct</a></li>
+      <li><a href="#scoring"><span class="n">6</span>Streaks &amp; scoring</a></li>
+      <li><a href="#free"><span class="n">7</span>Cost</a></li>
+      <li><a href="#termination"><span class="n">8</span>Ending your account</a></li>
+      <li><a href="#disclaimer"><span class="n">9</span>Disclaimers</a></li>
+      <li><a href="#changes"><span class="n">10</span>Changes</a></li>
+      <li><a href="#law"><span class="n">11</span>Governing law</a></li>
+      <li><a href="#contact"><span class="n">12</span>Contact</a></li>
+    </ol>
+  </nav>
+
+  <section class="clause" id="eligibility">
+    <h2><span class="n">01</span>Eligibility</h2>
+    <p>You must be at least 13 years old to use Bible Rats. By creating an account, you're confirming that's true. If you're between 13 and the age of majority where you live, you should have a parent or guardian's okay.</p>
+  </section>
+
+  <section class="clause" id="account">
+    <h2><span class="n">02</span>Your account</h2>
+    <p>You can sign in with Apple, Google, or an email one-time code — there are no passwords to lose. Your username is unique and yours alone once you claim it. You're responsible for what happens under your account, so keep the email or device you signed in with secure.</p>
+  </section>
+
+  <section class="clause" id="content">
+    <h2><span class="n">03</span>What you post</h2>
+    <p>Your check-ins — the passage you studied, what stood out, any reflection — belong to you. Posting them gives Bible Rats permission to store, display, and send them to the destinations <em>you</em> choose (your private journal, or specific groups), so the app can actually work. We don't use your reflections for anything else — no training data, no advertising, no resale.</p>
+    <p class="muted">You're responsible for what you post. Don't share anything you don't have the right to share, and don't post anything illegal, harassing, or knowingly false.</p>
+  </section>
+
+  <section class="clause" id="groups">
+    <h2><span class="n">04</span>Groups &amp; sharing</h2>
+    <p>Groups are voluntary accountability circles — Challenges with a start and end date, or permanent Clubs. Anyone with a 5-letter invite code or link can see a preview and choose to join. Once you're in, your check-ins are only shared into a group if you choose to share them, and at the detail level you choose — a full write-up, or just "checked in today."</p>
+    <p>You can leave any group at any time. If you're the owner of a group you leave, ownership passes automatically to another member, or the group is archived if you were the last one there.</p>
+  </section>
+
+  <section class="clause" id="conduct">
+    <h2><span class="n">05</span>Community conduct</h2>
+    <p>Bible Rats is for encouraging each other, not for harassment, hate speech, spam, or impersonation. We may remove content or suspend an account that breaks this — we'd rather have a small, honest community than a big, hostile one.</p>
+  </section>
+
+  <section class="clause" id="scoring">
+    <h2><span class="n">06</span>Streaks &amp; scoring</h2>
+    <p>Streaks, rankings, and points are for motivation, not currency — they carry no monetary value and can be reset or corrected if something goes wrong technically. We compute them as fairly and consistently as we can, but we don't guarantee the app or its numbers are available every minute of every day.</p>
+  </section>
+
+  <section class="clause" id="free">
+    <h2><span class="n">07</span>Cost</h2>
+    <p>Bible Rats is free to use today. If we ever introduce paid features, we'll update these Terms and tell you clearly before anything you do could cost you money.</p>
+  </section>
+
+  <section class="clause" id="termination">
+    <h2><span class="n">08</span>Ending your account</h2>
+    <p>You can delete your account at any time from <strong>Settings → Delete account</strong> — it's immediate and permanent, and it removes your journal, check-ins, messages, and group memberships. We may also suspend or terminate an account that violates these Terms.</p>
+  </section>
+
+  <section class="clause" id="disclaimer">
+    <h2><span class="n">09</span>Disclaimers</h2>
+    <p>Bible Rats is provided "as is." It's a tool for consistency and community, not a substitute for pastoral counsel, professional advice, or your own study of Scripture. To the extent the law allows, we disclaim warranties of any kind and aren't liable for indirect or consequential damages arising from your use of the app.</p>
+  </section>
+
+  <section class="clause" id="changes">
+    <h2><span class="n">10</span>Changes</h2>
+    <p>We may update these Terms as the app grows. If a change is material, we'll surface it in the app before it takes effect. Continuing to use Bible Rats after that means you accept the update.</p>
+  </section>
+
+  <section class="clause" id="law">
+    <h2><span class="n">11</span>Governing law</h2>
+    <p>These Terms are governed by the laws of Brazil, without regard to its conflict-of-law principles, and any dispute will be resolved in the courts of São Paulo, SP.</p>
+  </section>
+
+  <hr class="divider">
+
+  <footer class="contact" id="contact">
+    <p class="label">Questions</p>
+    <p>Reach the person who builds Bible Rats at <a class="inline" href="mailto:joaop.mateus@icloud.com">joaop.mateus@icloud.com</a>.</p>
+    <p class="fineprint">Bible Rats · a small, independent project. This document was last revised September 10, 2026.</p>
+  </footer>
+</div>
