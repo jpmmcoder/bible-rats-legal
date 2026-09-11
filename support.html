@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bible Rats Support</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>
+  :root {
+    --bg: #fafafa;
+    --surface: #ffffff;
+    --surface-raised: #f4f4f5;
+    --border: #e4e4e7;
+    --text: #18181b;
+    --text-secondary: #52525b;
+    --text-tertiary: #71717a;
+    --accent: #ea580c;
+    --accent-tint: rgba(234, 88, 12, 0.1);
+    --accent-line: rgba(234, 88, 12, 0.35);
+    --good: #15803d;
+    --good-tint: rgba(21, 128, 61, 0.1);
+    --shadow: 0 1px 2px rgba(24, 24, 27, 0.04);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #18181b;
+      --surface: #1f1f22;
+      --surface-raised: #27272a;
+      --border: #3f3f46;
+      --text: #fafafa;
+      --text-secondary: #a1a1aa;
+      --text-tertiary: #71717a;
+      --accent: #fb923c;
+      --accent-tint: rgba(251, 146, 60, 0.12);
+      --accent-line: rgba(251, 146, 60, 0.35);
+      --good: #4ade80;
+      --good-tint: rgba(74, 222, 128, 0.12);
+      --shadow: none;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #18181b;
+    --surface: #1f1f22;
+    --surface-raised: #27272a;
+    --border: #3f3f46;
+    --text: #fafafa;
+    --text-secondary: #a1a1aa;
+    --text-tertiary: #71717a;
+    --accent: #fb923c;
+    --accent-tint: rgba(251, 146, 60, 0.12);
+    --accent-line: rgba(251, 146, 60, 0.35);
+    --good: #4ade80;
+    --good-tint: rgba(74, 222, 128, 0.12);
+    --shadow: none;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: var(--accent-tint); }
+
+  .wrap { max-width: 700px; margin: 0 auto; padding: 56px 24px 96px; }
+
+  header.doc { display: flex; align-items: center; gap: 14px; margin-bottom: 40px; }
+  .mark {
+    width: 40px; height: 40px; border-radius: 11px;
+    background: var(--surface-raised);
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    flex: none;
+  }
+  .mark svg { width: 22px; height: 22px; }
+  .brand { font-family: "Manrope", sans-serif; font-weight: 800; font-size: 15px; letter-spacing: -0.01em; }
+  .brand small {
+    display: block; font-weight: 600; font-size: 11px; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--text-tertiary); margin-top: 1px;
+  }
+
+  h1.title {
+    font-family: "Manrope", sans-serif; font-weight: 800; font-size: 40px;
+    line-height: 1.08; letter-spacing: -0.02em; text-wrap: balance; margin: 0 0 14px;
+  }
+  .dek {
+    font-family: "Manrope", sans-serif; font-size: 15px; color: var(--text-secondary);
+    margin: 0 0 20px; max-width: 54ch;
+  }
+  .effective {
+    display: inline-flex; align-items: center; gap: 7px;
+    font-family: "Manrope", sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.04em;
+    color: var(--accent); background: var(--accent-tint); border: 1px solid var(--accent-line);
+    border-radius: 999px; padding: 6px 12px 6px 10px;
+  }
+  .effective .dot { width: 6px; height: 6px; border-radius: 999px; background: var(--accent); }
+
+  .summary {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
+    margin: 32px 0 8px;
+  }
+  .summary .card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+    padding: 16px 16px 15px; box-shadow: var(--shadow);
+  }
+  .summary .card .k {
+    font-family: "Manrope", sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--good); display: flex; align-items: center; gap: 6px; margin-bottom: 6px;
+  }
+  .summary .card .k::before {
+    content: ""; width: 6px; height: 6px; border-radius: 999px; background: var(--good); flex: none;
+  }
+  .summary .card p { margin: 0; font-family: "Manrope", sans-serif; font-size: 13px; color: var(--text-secondary); line-height: 1.45; }
+
+  nav.toc {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
+    padding: 20px 22px; margin: 36px 0 44px; box-shadow: var(--shadow);
+  }
+  nav.toc .label {
+    font-family: "Manrope", sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.09em;
+    text-transform: uppercase; color: var(--text-tertiary); margin: 0 0 12px;
+  }
+  nav.toc ol { list-style: none; margin: 0; padding: 0; columns: 2; column-gap: 24px; }
+  nav.toc li { break-inside: avoid; margin-bottom: 9px; }
+  nav.toc a {
+    font-family: "Manrope", sans-serif; font-size: 13.5px; font-weight: 600; color: var(--text-secondary);
+    text-decoration: none; display: flex; gap: 8px;
+  }
+  nav.toc a:hover { color: var(--accent); }
+  nav.toc a .n { color: var(--text-tertiary); font-variant-numeric: tabular-nums; width: 1.4em; flex: none; }
+
+  section.clause { margin: 0 0 38px; scroll-margin-top: 24px; }
+  section.clause h2 {
+    font-family: "Manrope", sans-serif; font-size: 20px; font-weight: 700; letter-spacing: -0.01em;
+    display: flex; align-items: baseline; gap: 10px; margin: 0 0 14px;
+  }
+  section.clause h2 .n { font-size: 14px; color: var(--accent); font-variant-numeric: tabular-nums; }
+  section.clause p { margin: 0 0 14px; color: var(--text); }
+  section.clause p.muted { color: var(--text-secondary); font-size: 15.5px; }
+  section.clause ul { margin: 0 0 14px; padding-left: 1.3em; }
+  section.clause li { margin-bottom: 9px; }
+  section.clause li strong { font-weight: 600; }
+  a.inline { color: var(--accent); text-decoration-color: var(--accent-line); }
+
+  table.data {
+    width: 100%; border-collapse: collapse; margin: 4px 0 16px;
+    font-family: "Manrope", sans-serif; font-size: 14px;
+  }
+  table.data th {
+    text-align: left; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--text-tertiary); padding: 0 10px 8px 0; border-bottom: 1px solid var(--border);
+  }
+  table.data td {
+    padding: 10px 10px 10px 0; border-bottom: 1px solid var(--border); color: var(--text-secondary); vertical-align: top;
+  }
+  table.data td:first-child { color: var(--text); font-weight: 600; white-space: nowrap; }
+  table.data tr:last-child td { border-bottom: none; }
+  .scroll-x { overflow-x: auto; }
+
+  .divider { height: 1px; background: var(--border); margin: 44px 0; border: none; }
+
+  footer.contact {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
+    padding: 24px 26px; box-shadow: var(--shadow);
+  }
+  footer.contact .label {
+    font-family: "Manrope", sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.09em;
+    text-transform: uppercase; color: var(--text-tertiary); margin: 0 0 8px;
+  }
+  footer.contact p { margin: 0 0 6px; font-size: 15.5px; }
+  footer.contact .fineprint { margin-top: 14px; font-family: "Manrope", sans-serif; font-size: 12px; color: var(--text-tertiary); }
+
+  @media (max-width: 560px) {
+    h1.title { font-size: 32px; }
+    nav.toc ol { columns: 1; }
+    .summary { grid-template-columns: 1fr; }
+    .wrap { padding: 40px 18px 72px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="doc">
+    <div class="mark">
+      <svg viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M110 120 Q110 95 135 95 L410 220 Q470 250 485 325 L485 740 Q475 708 450 680 Q395 620 315 585 L150 520 Q110 505 110 460 Z" fill="var(--text)" transform="translate(80,120) scale(0.62)"/>
+        <path d="M515 325 Q530 250 590 220 L865 95 Q890 95 890 120 L890 460 Q890 505 850 520 L690 585 Q620 615 565 675 Q535 708 520 740 L520 325 Z" fill="var(--text-tertiary)" transform="translate(80,120) scale(0.62)"/>
+      </svg>
+    </div>
+    <div class="brand">Bible Rats<small>Study together, stay consistent</small></div>
+  </header>
+
+  <h1 class="title">Support</h1>
+  <p class="dek">Bible Rats is built by one person. Write to me and you get me, not a ticket queue. Most answers are already on this page.</p>
+  <span class="effective"><span class="dot"></span>Usually a reply within two days</span>
+
+  <div class="summary">
+    <div class="card"><p class="k">Email</p><p><a class="inline" href="mailto:joaop.mateus@icloud.com">joaop.mateus@icloud.com</a></p></div>
+    <div class="card"><p class="k">Report content</p><p>Long-press anything another person wrote.</p></div>
+    <div class="card"><p class="k">Delete your account</p><p>Settings → Delete account. Immediate.</p></div>
+  </div>
+
+  <nav class="toc" aria-label="Table of contents">
+    <p class="label">On this page</p>
+    <ol>
+      <li><a href="#contact-first"><span class="n">1</span>Getting help</a></li>
+      <li><a href="#signin"><span class="n">2</span>Signing in</a></li>
+      <li><a href="#checkins"><span class="n">3</span>Check-ins and streaks</a></li>
+      <li><a href="#groups"><span class="n">4</span>Groups and invite codes</a></li>
+      <li><a href="#privacy-controls"><span class="n">5</span>Who sees what you write</a></li>
+      <li><a href="#safety"><span class="n">6</span>Reporting and blocking</a></li>
+      <li><a href="#notifications"><span class="n">7</span>Notifications</a></li>
+      <li><a href="#account"><span class="n">8</span>Deleting your account</a></li>
+    </ol>
+  </nav>
+
+  <section class="clause" id="contact-first">
+    <h2><span class="n">01</span>Getting help</h2>
+    <p>Email <a class="inline" href="mailto:joaop.mateus@icloud.com">joaop.mateus@icloud.com</a> with what happened and what you expected instead. If something looks wrong on a specific screen, a screenshot saves us both a round trip.</p>
+    <p class="muted">If you're reporting something another person posted, use the in-app report described below rather than email — it reaches me with the context attached, and the author is never told who reported.</p>
+  </section>
+
+  <section class="clause" id="signin">
+    <h2><span class="n">02</span>Signing in</h2>
+    <p>You can sign in with Apple, with Google, or with a code sent to your email. The code arrives within a minute; if it doesn't, check the spam folder before requesting another one, because each new request invalidates the previous code.</p>
+    <p>Signing in with the same method always returns you to the same account. Using a different method with the same address creates a separate account, so pick one and stick with it.</p>
+  </section>
+
+  <section class="clause" id="checkins">
+    <h2><span class="n">03</span>Check-ins and streaks</h2>
+    <p>A check-in records what you studied and one thing that stood out. It takes about ten seconds and that's deliberate — the app is built so showing up is easy enough that you keep doing it.</p>
+    <div class="scroll-x">
+      <table class="data">
+        <tr><th>Question</th><th>Answer</th></tr>
+        <tr><td>What counts toward a streak?</td><td>One check-in per day. A second one the same day is welcome, but it doesn't add to the streak.</td></tr>
+        <tr><td>Which day does a check-in belong to?</td><td>The day in your own timezone, decided on the server — so travelling doesn't quietly break a streak.</td></tr>
+        <tr><td>I missed a day.</td><td>The current streak restarts, but your longest streak and every entry you've written stay exactly where they are.</td></tr>
+        <tr><td>Can I edit or delete one?</td><td>Yes. Open it from your journal. Deleting it removes it from every group you shared it to.</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <section class="clause" id="groups">
+    <h2><span class="n">04</span>Groups and invite codes</h2>
+    <p>A group is a closed circle you join with a five-character invite code. There is no public directory and no discovery — if you didn't get a code, you can't get in.</p>
+    <p>Find your group's code under <strong>Details</strong> inside the group; tap it to copy, or use <strong>Invite friends</strong> to share it. Anyone holding the code can join, so treat it like a door key and ask an admin to regenerate it if it spreads further than you meant.</p>
+  </section>
+
+  <section class="clause" id="privacy-controls">
+    <h2><span class="n">05</span>Who sees what you write</h2>
+    <p>Nothing you write is public. Each check-in is shared per group, at a level you choose:</p>
+    <div class="scroll-x">
+      <table class="data">
+        <tr><th>Level</th><th>What the group sees</th></tr>
+        <tr><td>Full</td><td>The passage and what stood out to you.</td></tr>
+        <tr><td>Summary only</td><td>That you studied, and your streak — not what you wrote.</td></tr>
+        <tr><td>Journal only</td><td>Nothing. The entry stays yours alone.</td></tr>
+      </table>
+    </div>
+    <p>The longer private reflection is never shared with anyone, at any level. These limits are enforced on the server, not merely hidden in the interface — a group member's app is never sent content they aren't entitled to see.</p>
+  </section>
+
+  <section class="clause" id="safety">
+    <h2><span class="n">06</span>Reporting and blocking</h2>
+    <p><strong>To report</strong> a check-in, comment or message someone else posted, press and hold it, choose <em>Report</em>, and pick a reason. Reports are reviewed and acted on, and the person you reported is never told who reported them.</p>
+    <p><strong>To block someone</strong>, use the same menu and choose <em>Block</em>. Blocking works both ways: you stop seeing their check-ins, comments and messages, and they stop seeing yours. Your group's progress count still includes them, so blocking one person never distorts everyone else's numbers. Undo it any time in <strong>Settings → Blocked accounts</strong>.</p>
+    <p class="muted">The app also filters a list of offensive terms from messages, comments and check-ins before they are ever posted.</p>
+  </section>
+
+  <section class="clause" id="notifications">
+    <h2><span class="n">07</span>Notifications</h2>
+    <p>Under <strong>Settings → Notifications</strong> you choose whether to get a streak reminder and at what time, whether to hear when a friend checks in, and whether group chat notifies you. Each group also has its own switch under its <strong>Details</strong> tab.</p>
+    <p>If nothing arrives at all, check that notifications are still allowed for Bible Rats in the iPhone's own Settings app — a denial there overrides anything chosen inside the app.</p>
+  </section>
+
+  <section class="clause" id="account">
+    <h2><span class="n">08</span>Deleting your account</h2>
+    <p>Open <strong>Settings → Delete account</strong> and confirm twice. Your profile, check-ins, reflections, comments, reactions and messages are deleted immediately, and you're signed out.</p>
+    <p>If you own a group, ownership passes to the longest-standing admin so the group survives without you; if there's no one left, the group is archived with you. Deletion is permanent — there is no undo, and I can't restore it afterwards, so export anything you want to keep beforehand.</p>
+  </section>
+
+  <hr class="divider">
+
+  <footer class="contact" id="contact">
+    <p class="label">Still stuck</p>
+    <p>Write to <a class="inline" href="mailto:joaop.mateus@icloud.com">joaop.mateus@icloud.com</a>. See also the <a class="inline" href="./privacy.html">Privacy Policy</a> and the <a class="inline" href="./terms.html">Terms of Use</a>.</p>
+    <p class="fineprint">Bible Rats · a small, independent project. This page was last revised September 11, 2026.</p>
+  </footer>
+</div>
+</body>
+</html>
